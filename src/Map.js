@@ -1,3 +1,4 @@
+// /*global kakao*/
 import React, { useState, useEffect } from "react";
 import WaffleMarker from "./WaffleMarker/WaffleMarker";
 import waffle_marker from "./img/waffle_marker.png";
@@ -10,6 +11,9 @@ const Map = ({ loc }) => {
             mapscript();
         }
     }, [loc]);
+    // useEffect(() => {
+    //     alert(kakao);
+    // }, []);
 
     const mapscript = () => {
         var infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
@@ -76,7 +80,10 @@ const Map = ({ loc }) => {
             // });
             // // 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
             kakao.maps.event.addListener(marker, "click", function () {
-                alert("Marker Click!");
+                if (window.ReactNativeWebView) {
+                    var postData = place;
+                    window.ReactNativeWebView.postMessage(JSON.stringify(postData));
+                }
                 console.log(place);
             });
         }
