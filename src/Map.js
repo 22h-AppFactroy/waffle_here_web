@@ -84,7 +84,7 @@ const Map = ({ loc }) => {
                     var postData = place;
                     window.ReactNativeWebView.postMessage(JSON.stringify(postData));
                 }
-                console.log(place);
+                console.log(JSON.stringify(postMessage));
             });
         }
 
