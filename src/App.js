@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import Map from "./Map";
+import Loading from "./Loading/Loading";
 const App = () => {
     const [loc, setLoc] = useState();
     useEffect(() => {
@@ -25,17 +26,27 @@ const App = () => {
             });
         }
     }, []);
+
     useEffect(() => {
         console.log(loc);
     }, [loc]);
+    // return (
+    //     <div className="App">
+    //         <Loading />
+    //     </div>
+    // );
     if (loc?.position) {
         return (
             <div className="App">
-                <Map loc={loc} />
+                <Map loc={loc} setLoc={setLoc} />
             </div>
         );
     } else {
-        return <div className="App">No Locs</div>;
+        return (
+            <div className="App">
+                <Loading />
+            </div>
+        );
     }
 };
 

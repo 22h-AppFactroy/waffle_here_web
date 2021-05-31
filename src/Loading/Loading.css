@@ -1,0 +1,60 @@
+.loading-wrapper {
+    min-height: 100vh;
+    background: #fffeab;
+}
+.loading-wrapper .text-div {
+    text-align: center;
+
+    padding-top: 30%;
+}
+.loading-wrapper label {
+    color: gray;
+    font-family: "theme_font";
+}
+.loading-wrapper span {
+    display: block;
+    font-family: "theme_font";
+    font-size: 1.8rem;
+}
+.loading-wrapper img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 120px;
+    height: 135px;
+    margin: -60px 0 0 -60px;
+    border-radius: 100%;
+}
+.loading {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -60px 0 0 -60px;
+    background: none;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    border: 10px solid none;
+}
+.loading:after {
+    content: "";
+    background: trasparent;
+    width: 140%;
+    height: 140%;
+    position: absolute;
+    border-radius: 100%;
+    top: -20%;
+    left: -20%;
+    opacity: 0.7;
+    box-shadow: rgba(255, 208, 0, 0.6) -4px -5px 3px -3px;
+    animation: rotate 2s infinite linear;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
